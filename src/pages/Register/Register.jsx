@@ -7,6 +7,15 @@ import { Link } from "react-router-dom";
 const Register = () => {
   // state for control number
   const [phoneNumber, setPhoneNumber] = useState();
+  const handleRegister =(e)=>{
+    e.preventDefault()
+    const form = e.target
+    const user = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value 
+    }
+  }
 
   return (
     <main>
