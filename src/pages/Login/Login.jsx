@@ -9,8 +9,9 @@ const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState();
 
   return (
-    <main>
-      <div className="hero bg-base-200 min-h-screen">
+    <main >
+
+      <div  className="hero bg-base-200 min-h-screen">
         <div className="hero-content ">
           <div className="card bg-base-100 w-full max-w-lg min-w-[500px] shrink-0 shadow-2xl">
             <h1 className=" text-xl font-bold text-center py-3">Please Login with Number/Email.</h1>
@@ -19,7 +20,7 @@ const Login = () => {
               {/* Number  */}
               <div className="form-control">
                 <label className="label">
-                  <span className="text-base md:text-lg font-semibold">
+                  <span className="text-base   font-semibold">
                     Phone Number
                   </span>
                 </label>
@@ -33,7 +34,7 @@ const Login = () => {
               {/* email  */}
               <div className="form-control">
                 <label className="label">
-                  <span className="text-base md:text-lg font-semibold">
+                  <span className="text-base   font-semibold">
                     Email
                   </span>
                 </label>
@@ -46,7 +47,7 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="text-base md:text-lg font-semibold">
+                  <span className="text-base   font-semibold">
                     PIN
                   </span>
                 </label>
