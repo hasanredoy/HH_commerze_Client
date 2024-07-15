@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-primary{
+  background: #5f015f;
+  color:  white;
+  border: 1px solid #5f015f;
+  font-weight: 700;
+}
+.btn-primary:hover{
+  background:white ;
+  border: 1px solid #5f015f;
+  color:#5f015f  ;
+  font-weight: 700;
+}
+
+.bg-primary{
+  background: #5f015f;
+}
+.text-primary{
+  background: #5f015f;
+}
