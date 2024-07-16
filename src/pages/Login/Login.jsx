@@ -2,11 +2,12 @@
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer} from "react-toastify";
 import axios from "axios";
 
 const Login = () => {
+const navigate = useNavigate()
   // state for control number
   const [phoneNumber, setPhoneNumber] = useState();
     // state for control number error
@@ -42,9 +43,10 @@ const loginUser=(e)=>{
 
     }
     if(res.data?.message==='user'){
-     console.log('login');
+      console.log('login');
+      localStorage.setItem("user", JSON.stringify(res.data?.user))
+      navigate('/dashboard/userHome')
       return toast.success("login successfully.");
-
     }
   
   });

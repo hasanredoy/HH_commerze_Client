@@ -1,13 +1,14 @@
 // import react phone number input
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+ // get auth provider 
   const navigate = useNavigate();
   // state for control number
   const [phoneNumber, setPhoneNumber] = useState();
@@ -43,7 +44,9 @@ const Register = () => {
      if(res.data?.insertedId){
       toast.success("Registered successfully.");
       setTimeout(() => {
+        
         navigate("/");
+
       }, 2000);
      }
     });
