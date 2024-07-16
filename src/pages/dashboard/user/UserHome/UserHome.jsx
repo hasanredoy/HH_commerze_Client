@@ -3,6 +3,7 @@ import addMoney from "../../../../assets/icons/add-money.png";
 import balance from "../../../../assets/icons/cash.png";
 import cashOut from "../../../../assets/icons/withdrawal.png";
 import sendMoney from "../../../../assets/icons/transfer.png";
+import { Link } from "react-router-dom";
 
 const UserHome = () => {
   return (
@@ -33,12 +34,12 @@ const UserHome = () => {
       <h2 className=" text-center text-3xl font-bold py-10">What You Wanna Do?</h2>
       <section className=" flex justify-center gap-10">
         {/* add money  */}
-        <div className="stats shadow-md bg-gray-100  border border-gray-600  ">
+        <Link to={'/dashboard/addMoney'} className="stats shadow-md bg-gray-100  border border-gray-600  ">
           <div className="stat flex items-center flex-col gap-3 w-40">
             <div className="stat-title text-lg font-bold text-black">Add Money</div>
              <img src={addMoney} className=" w-16 h-16" alt="add money icon" />
           </div>
-        </div>
+        </Link>
         {/*cashout  div   */}
         <div className="stats shadow-md bg-gray-100  border border-gray-600  w-40  ">
           <div className="stat flex items-center flex-col  gap-3">
@@ -47,12 +48,12 @@ const UserHome = () => {
           </div>
         </div>
         {/* send money  */}
-        <div className="stats shadow-md bg-gray-100  border border-gray-600   w-40">
+        <Link to={'/dashboard/sendMoney'} className="stats shadow-md bg-gray-100  border border-gray-600   w-40">
           <div className="stat flex items-center flex-col gap-3">
             <div className="stat-title text-lg font-bold text-black">Send Money</div>
              <img src={sendMoney} className=" w-16 h-16" alt="add money icon" />
           </div>
-        </div>
+        </Link>
         {/* balance   */}
         <div className="stats shadow-md bg-gray-100  border border-gray-600  w-40 overflow-hidden ">
           <div className="stat flex items-center flex-col gap-3">

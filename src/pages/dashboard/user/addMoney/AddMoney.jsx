@@ -1,12 +1,12 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input/input";
 
-const SendMoney = () => {
+const AddMoney = () => {
   const [phoneNumber,setPhoneNumber]=useState()
   return (
     <div className=" flex justify-center items-center h-screen">
 <div className="card bg-base-100 w-full max-w-lg min-w-[500px] shrink-0 shadow-2xl">
-            <h1 className=" text-xl font-bold text-center py-3">Please give your and customer info blew.</h1>
+            <h1 className=" text-xl font-bold text-center py-3">Please give your and agent info blew.</h1>
             <form  className="card-body">
         
               {/* user Number  */}
@@ -23,11 +23,11 @@ const SendMoney = () => {
                   className="input input-bordered"
                 />
               </div>
-              {/* customer Number  */}
+              {/* Agent Number  */}
               <div className="form-control">
                 <label className="label">
                   <span className="text-base   font-semibold">
-                    Customer Number
+                    Agent Number
                   </span>
                 </label>
                 <PhoneInput
@@ -39,14 +39,13 @@ const SendMoney = () => {
               </div>
               {/* <p className=" text-red-600 ">{phoneError}</p> */}
 
-              {/* email  */}
+              {/* amount  */}
               <div className="form-control">
                 <label className="label">
                   <span className="text-base   font-semibold">
                     Amount 
                   </span>
                 </label>
-                <p><small><b>note:</b> min 50tk, max as you want</small></p>
                 <input
                   type="number"
                   placeholder="amount "
@@ -78,4 +77,4 @@ const SendMoney = () => {
   );
 };
 
-export default SendMoney;
+export default AddMoney;
