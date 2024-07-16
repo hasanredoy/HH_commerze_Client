@@ -35,6 +35,8 @@ const Register = () => {
       pin: form.pin.value,
       user_balance: 40,
       agent_balance: 10000,
+      role:"user",
+      status:'pending'
     };
     axios.post("http://localhost:5000/users", user).then((res) => {
       console.log(res.data);
@@ -115,7 +117,7 @@ const Register = () => {
               </div>
             </form>
             <h4 className=" text-base text-center py-3">
-              Already Member of HH Commerze{" "}
+              Already Member of <b>HH Commerze?</b>{" "}
               <Link className=" font-bold text-blue-600" to={"/"}>
                 Login!
               </Link>{" "}
