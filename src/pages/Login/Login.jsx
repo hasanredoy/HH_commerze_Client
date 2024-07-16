@@ -3,7 +3,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { toast} from "react-toastify";
+import { toast, ToastContainer} from "react-toastify";
 import axios from "axios";
 
 const Login = () => {
@@ -18,7 +18,7 @@ const loginUser=(e)=>{
   e.preventDefault();
   const form = e.target;
   // check phone number
-  if (!phoneNumber || phoneNumber?.length < 8 || phoneNumber?.length > 15) {
+  if ( phoneNumber?.length < 8 || phoneNumber?.length > 15) {
     return setPhoneError("invalid phone number");
   }
   setPhoneError("");
@@ -74,6 +74,8 @@ const loginUser=(e)=>{
                   className="input input-bordered"
                 />
               </div>
+              <p className=" text-red-600 ">{phoneError}</p>
+
               {/* email  */}
               <div className="form-control">
                 <label className="label">
@@ -111,6 +113,7 @@ const loginUser=(e)=>{
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </main>
   );
 };
