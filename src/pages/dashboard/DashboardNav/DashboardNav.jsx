@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const DashboardNav = () => {
   return (
-    <main className=" bg-fuchsia-100 shadow-md shadow-neutral-600 w-[300px] h-svh ">
+    <main className=" bg-fuchsia-100 border-r-2 border-fuchsia-200 shadow-md shadow-neutral-600 h-svh  z-50 ">
        <h1 className=" text-xl font-black bg-gradient-to-r bg-clip-text text-transparent from-neutral-900 via-slate-400 to-fuchsia-900 drop-shadow-lg shadow-amber-50 text-center py-5 ">HH CoMmerZe</h1>
        <div className="divider"></div>
        {/* container  */}
