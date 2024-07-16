@@ -2,25 +2,46 @@
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  const navigate = useNavigate();
   // state for control number
   const [phoneNumber, setPhoneNumber] = useState();
+  // state for control number error
+  const [phoneError, setPhoneError] = useState("");
+
+  // console.log(typeof phoneNumber);
   // handler for register user
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
+    // check phone number
+    if (!phoneNumber || phoneNumber?.length < 8 || phoneNumber?.length > 15) {
+      return setPhoneError("invalid phone number");
+    }
+    setPhoneError("");
+    // check pin length
+    if (form?.pin?.value?.length < 5 || form?.pin?.value?.length > 5) {
+      return toast.error("PIN shouldn't be grater than 5 or smaller than 5");
+    }
     const user = {
       name: form.name.value,
       email: form.email.value,
       phone: phoneNumber,
+      pin: form.pin.value,
       user_balance: 40,
       agent_balance: 10000,
     };
     axios.post("http://localhost:5000/users", user).then((res) => {
       console.log(res.data);
+      toast.success("Registered successfully.");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     });
   };
 
@@ -58,8 +79,11 @@ const Register = () => {
                   value={phoneNumber}
                   onChange={setPhoneNumber}
                   className="input input-bordered"
+                  name="phoneInput"
+                  rules={{ required: true }}
                 />
               </div>
+              <p className=" text-red-600 ">{phoneError}</p>
               {/* email  */}
               <div className="form-control">
                 <label className="label">
@@ -82,7 +106,6 @@ const Register = () => {
                   className="input input-bordered"
                   required
                   name="pin"
-                  onInput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                   type="number"
                   maxLength="6"
                 />
@@ -100,6 +123,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </main>
   );
 };
