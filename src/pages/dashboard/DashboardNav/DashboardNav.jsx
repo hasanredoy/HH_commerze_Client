@@ -2,10 +2,18 @@ import { FaHistory, FaHome, FaSignOutAlt, FaUserPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import { toast, ToastContainer } from "react-toastify";
+import useGetUserRole from "../../../Hooks/useGetUserRole";
+import { VscGitPullRequestNewChanges } from "react-icons/vsc";
+
+
 
 const DashboardNav = () => {
+// get modal and setmodal from auth hook
   const {logoutModal, setLogoutModal} = useAuth();
+ const role = useGetUserRole()
+ console.log(role);
   // console.log(logoutModal);
+  // handler for logout
 const handleLogout=()=>{
   localStorage.setItem('user','{}')
   setLogoutModal(false)
@@ -38,7 +46,8 @@ const handleLogout=()=>{
           <section className=" h-[80svh] p-5 max-h-screen-  flex justify-between flex-col">
             {/* nav NavLinks  */}
             <section className=" ">
-              <ul className=" space-y-3">
+              {/* links for user  */}
+              {role=="user"&&<ul className=" space-y-3">
                 <NavLink
                   className=" text-lg font-semibold  gap-2 flex items-center"
                   to={"/dashboard/userHome"}
@@ -51,17 +60,53 @@ const handleLogout=()=>{
                 >
                   <FaHistory></FaHistory> Payment History
                 </NavLink>
-              </ul>
+              </ul>}
+              {/* links for agent  */}
+              {role=="agent"&&<ul className=" space-y-3">
+                <NavLink
+                  className=" text-lg font-semibold  gap-2 flex items-center"
+                  to={"/dashboard/agentHome"}
+                >
+                  <FaHome></FaHome>Home
+                </NavLink>
+                <NavLink
+                  className=" text-lg font-semibold  gap-2 flex items-center"
+                  to={"/ "}
+                >
+                  <FaHistory></FaHistory> Payment History
+                </NavLink>
+                <NavLink
+                  className=" text-lg font-semibold  gap-2 flex items-center"
+                  to={"/ "}
+                >
+                  <VscGitPullRequestNewChanges></VscGitPullRequestNewChanges> Customer Request
+                </NavLink>
+              </ul>}
+              {/* links for admin  */}
+              {role=="admin"&&<ul className=" space-y-3">
+                <NavLink
+                  className=" text-lg font-semibold  gap-2 flex items-center"
+                  to={"/dashboard/userHome"}
+                >
+                  <FaHome></FaHome>Home
+                </NavLink>
+                <NavLink
+                  className=" text-lg font-semibold  gap-2 flex items-center"
+                  to={"/ "}
+                >
+                  <FaHistory></FaHistory> Payment History
+                </NavLink>
+              </ul>}
             </section>
             {/* static NavLinks  */}
             <section>
               <ul className=" space-y-3">
-                <NavLink
+               {role=='user'&& <NavLink
                   className=" text-lg font-semibold  gap-2 flex items-center"
                   to={"/dashboard/becomeAgent"}
                 >
                   <FaUserPlus></FaUserPlus> Become Agent
-                </NavLink>
+                </NavLink>}
                 <button
                   onClick={() => setLogoutModal(!logoutModal)}
                   className=" text-lg font-semibold  gap-2 flex items-center"

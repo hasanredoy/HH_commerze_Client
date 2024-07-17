@@ -8,6 +8,7 @@ import SendMoney from "../pages/dashboard/user/sendMoney/SendMoney";
 import AddMoney from "../pages/dashboard/user/addMoney/AddMoney";
 import CashOut from "../pages/dashboard/user/CashOut/CashOut";
 import BecomeAgent from "../pages/BecomeAgent/BecomeAgent";
+import AgentHome from "../pages/dashboard/agent/AgentHome/AgentHome";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:'becomeAgent',
         element:<BecomeAgent></BecomeAgent>
+      },
+      {
+        path:'agentHome',
+        element:<AgentHome></AgentHome>
       },
     ]
   },

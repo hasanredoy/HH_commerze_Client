@@ -5,8 +5,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer} from "react-toastify";
 import axios from "axios";
+import useGetUserRole from "../../Hooks/useGetUserRole";
 
 const Login = () => {
+  const role = useGetUserRole()
 const navigate = useNavigate()
   // state for control number
   const [phoneNumber, setPhoneNumber] = useState();
@@ -49,7 +51,7 @@ const loginUser=(e)=>{
     if(res.data?.message==='user'){
       console.log('login');
       localStorage.setItem("user", JSON.stringify(res.data?.user))
-      navigate('/dashboard/userHome')
+      navigate(res.data?.role!=='user'?res.data?.role=="agent"?'/dashboard/agentHome':'/dashboard/adminHome':'/dashboard/userHome')
       return toast.success("login successfully.");
     }
   
