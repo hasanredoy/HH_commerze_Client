@@ -38,6 +38,10 @@ const loginUser=(e)=>{
       return toast.error("Incorrect PIN.");
 
     }
+    if(res.data?.message=='invalid number/email'){
+      return toast.error("invalid number/email");
+
+    }
     if(res.data?.message=='Request Under Process'){
      return  toast.error("Please wait request is under process.");
 

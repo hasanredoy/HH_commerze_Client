@@ -41,12 +41,12 @@ const UserHome = () => {
           </div>
         </Link>
         {/*cashout  div   */}
-        <div className="stats shadow-md bg-gray-100  border border-gray-600  w-40  ">
+        <Link to={'/dashboard/cashOut'} className="stats shadow-md bg-gray-100  border border-gray-600  w-40  ">
           <div className="stat flex items-center flex-col  gap-3">
             <div className="stat-title text-lg font-bold text-black">Cash Out</div>
              <img src={cashOut} className=" w-16 h-16" alt="add money icon" />
           </div>
-        </div>
+        </Link>
         {/* send money  */}
         <Link to={'/dashboard/sendMoney'} className="stats shadow-md bg-gray-100  border border-gray-600   w-40">
           <div className="stat flex items-center flex-col gap-3">

@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
+import { HiCurrencyBangladeshi } from "react-icons/hi2";
 import PhoneInput from "react-phone-number-input/input";
+import { Link } from "react-router-dom";
 
 const AddMoney = () => {
   const [phoneNumber,setPhoneNumber]=useState()
   return (
-    <div className=" flex justify-center items-center h-screen">
+    <div className=" relative flex justify-center items-center h-screen">
+      <Link to={-1} className=" text-xl font-bold btn btn-ghost btn-circle text-neutral-950 absolute top-1 left-2"><FaArrowLeft></FaArrowLeft></Link>
 <div className="card bg-base-100 w-full max-w-lg min-w-[500px] shrink-0 shadow-2xl">
             <h1 className=" text-xl font-bold text-center py-3">Please give your and agent info blew.</h1>
             <form  className="card-body">
@@ -52,6 +56,7 @@ const AddMoney = () => {
                   className="input input-bordered"
                   name="email"
                 />
+                  <p ><small className=" flex gap-1 items-center"><b className="text-red-600">note:</b> min 50<HiCurrencyBangladeshi className="text-xl"></HiCurrencyBangladeshi>, max as you want</small></p>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -68,7 +73,7 @@ const AddMoney = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Add Money</button>
               </div>
             </form>
           
