@@ -19,7 +19,7 @@ const DashboardNav = () => {
       {/* static NavLinks  */}
       <section>
       <ul className=" space-y-3">
-          <NavLink className=" text-lg font-semibold  gap-2 flex items-center" to={'/ '}><FaUserPlus></FaUserPlus> Become Agent</NavLink>
+          <NavLink className=" text-lg font-semibold  gap-2 flex items-center" to={'/dashboard/becomeAgent'}><FaUserPlus></FaUserPlus> Become Agent</NavLink>
           <NavLink className=" text-lg font-semibold  gap-2 flex items-center" to={'/ '}><FaSignOutAlt></FaSignOutAlt> Logout</NavLink>
        
         </ul>
