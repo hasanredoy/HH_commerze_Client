@@ -14,7 +14,7 @@ useEffect(()=>{
     console.log(res.data);
     setRole(res?.data?.role)
   })
-},[]) 
+},[email]) 
   return role
 };
 

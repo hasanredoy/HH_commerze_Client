@@ -1,36 +1,18 @@
-import banner from "../../../../assets/banking-background-design.png";
+import balance from "../../../../assets/icons/cash.png"; 
 import addMoney from "../../../../assets/icons/add-money.png";
-import balance from "../../../../assets/icons/cash.png";
 import cashOut from "../../../../assets/icons/withdrawal.png";
 import sendMoney from "../../../../assets/icons/transfer.png";
 import { Link } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import { HiCurrencyBangladeshi } from "react-icons/hi2";
+import Banner from "../../../../components/banner/Banner";
 
 const UserHome = () => {
   const {user}= useAuth()
   console.log(user);
   return (
     <main>
-      {/* banner section  */}
-      <section className=" h-[250px] px-10 flex w-screen max-w-[100%] bg-slate-100  ">
-        <div className=" flex-1 flex pt-20  text-start justify-start   flex-col gap-3">
-          <h1 className=" text-4xl font-black">
-            {" "}
-            Welcome To{" "}
-            <span className=" font-black bg-gradient-to-r bg-clip-text text-transparent from-fuchsia-800 via-slate-400 to-fuchsia-900 drop-shadow-lg shadow-amber-50">
-              HH CoMmerZe
-            </span>
-          </h1>
-          <p className=" text-lg font-semibold">
-            A digital mobile banging system. Where user can pay and add balance
-            anytime anywhere..
-          </p>
-        </div>
-        <div className=" flex-1">
-          <img src={banner} alt="user home banner" className=" h-full w-full" />
-        </div>
-      </section>
+      <Banner></Banner>
       {/* section for payments methods */}
       <h2 className=" text-center text-2xl font-bold py-10">
       Hi, <span className=" font-black bg-gradient-to-r bg-clip-text text-transparent from-fuchsia-800 via-slate-400 to-fuchsia-900 drop-shadow-lg shadow-amber-50">{user?.name?user.name:"Welcome Back"}</span>
